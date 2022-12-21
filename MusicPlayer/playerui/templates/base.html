@@ -1,0 +1,170 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+  
+  <script src="https://kit.fontawesome.com/c79a5c6e2b.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link href='https://css.gg/arrows-scroll-h.css' rel='stylesheet'>
+    <link href='https://css.gg/push-chevron-up-r.css' rel='stylesheet'>
+    <link href='https://css.gg/push-chevron-down-r.css' rel='stylesheet'>
+
+    <link href='https://css.gg/push-right.css' rel='stylesheet'>
+    <link href='https://css.gg/push-left.css' rel='stylesheet'>
+    <link href='https://css.gg/minimize-alt.css' rel='stylesheet'>
+    <link href='https://css.gg/maximize-alt.css' rel='stylesheet'>
+
+    <link href='https://css.gg/play-button.css' rel='stylesheet'>
+    <link href='https://css.gg/play-pause.css' rel='stylesheet'>
+    <link href='https://css.gg/play-forwards.css' rel='stylesheet'>
+    <link href='https://css.gg/play-backwards.css' rel='stylesheet'>
+
+    
+
+	<title>Music Player</title>
+
+</head>
+<body class=" d-flex flex-row " style="background:#E5E5E5;"> 
+      <div class="d-flex flex-column flex-shrink-0 p-3 " style="width: 280px;height:auto;background: #14213D;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark">
+          
+          <span class="fs-4">SongStore</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              New Uploads
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              Album
+            </a>
+
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              Songs
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              Customers
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <a href="#" class="nav-link">
+              Log Out
+            </a>
+
+    </div>
+    
+<div class="container w-100">
+
+    <nav class="navbar navbar-expand-lg mt-2" style="background: #14213D;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+         <a class="navbar-brand" href="#">Music</a>
+
+         <div class="collapse navbar-collapse show" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item ">
+                <a class="nav-link" href="#">My Files<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Online</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/uploadfile">Upload Song</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+<div class="right-sidebar d-flex flex-column bg-light mt-2 h-100">
+    <br>
+
+    <a class="gg-minimize-alt mx-2" style="align-self: end;" id="rs-minimize"></a> 
+    <!-- <i class="gg-push-right mx-4" style="align-self: end;"></i> -->
+    <!-- <i class="gg-push-left mx-2 d-none"></i> -->
+    <i class="gg-push-left mx-3" style="align-self:end; display:none" id="rs-maximize"></i> 
+    
+    <div class="card mt-4 mx-2" style="width: 12rem;"  id="right-sidebar">
+        <img class="card-img-top" src="{% static 'images/default.jpg'%}" alt="Card image cap">
+        <div class="card-body">
+            <p>
+                <b>Song: Name</b><br>
+                Movie: Name<br>
+                Author: Name
+            </p>
+
+        </div>
+
+    <div class="audio-player d-flex flex-row ">
+        
+            <lable type="submit" class="btn" name="backward" id="backward" >
+                <i class="fa-solid fa-backward" id="backward"></i>         
+            </lable> 
+
+            <lable type="submit" class="btn" id="" >
+                <i class="fa-solid fa-play" id="play"></i>
+
+                <i class="fa-solid fa-pause" id="pause"></i>
+            </lable>
+
+            <lable type="submit" class="btn" name="forward" id="forward">
+                <i class="fa-solid fa-forward"></i>
+            </lable>
+        
+    </div>
+
+    <div class="progress mb-3 mr-1 d-flex align-items-center">
+        <audio id="audio" >
+                <source src="{% static 'songs\Yeh-Chand-Sa-Roshan-Chehra.mp3'%}"" type="audio/mpeg">
+        </audio>
+        <progress  id="progress-bar" value="40" max="100"></progress>
+    </div>
+    <br >
+    
+    <i class=""></i>
+    <i class=""></i>
+    <i class=""></i>
+    </div>
+        <hr>
+        
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/js.js'%}"></script>
+    
+</body>
+</html>

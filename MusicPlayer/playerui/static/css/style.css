@@ -1,0 +1,48 @@
+body {
+    
+}
+
+/*img{
+    width: 100px;
+
+}*/
+
+.hide {
+    
+}
+
+.hide:hover {
+    background: white;
+
+}
+
+.orange {
+    color: #FCA311
+}
+.tab {
+    display: flex;
+    flex-direction: row;
+}
+.audio-player{
+    margin: 5px 5px 0 0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    size: 15px;
+    
+}
+.audio-player label .pp{
+    
+    background: grey;
+    border-radius: 50%;    
+}
+
+progress {
+    width: 100%;
+    height: 100%;
+    accent-color: #FCA311;
+}
+
+
