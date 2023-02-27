@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <!-- Recent-tap -->
+
+    <div class="mt-2">
+
+        <div class="d-flex flex-row justify-content-between">
+            <h3 class="orange">Most Recent</h3>
+            <i class="gg-push-chevron-down-r m-2 p-2 hide" id="recent-tab-expand"></i>
+            <i class="gg-push-chevron-up-r m-2 p-2 hide"  id="recent-tab-collapse"></i>
+        </div>
+
+        <div class="tab text-center" id="recent-tab">
+          
+          {% for recent in song.recent %}
+            <div class="card mt-2 mr-2 song-card" style="width: 11rem;" >
+              <img class="card-img-top" src="media/image/{% if recent.wallpaper %}{{ recent.title}}{% else %}defaultsong{% endif %}.jpg" alt="{{recent.title}}">
+              <div class="card-body">
+                <h5 class="card-title" >{{ recent.title }}</h5>
+              </div>
+            </div>
+          {% endfor %}
+          
+
+        </div>
+
+        <div>
+            <a href="" style="float: right; color: #FCA311;">More...</a>
+            <br>
+        </div>
+        <hr>
+
+    </div>
+
+    <!-- Folder-tab -->
+
+    <div class="mt-2">
+
+        <div class="d-flex flex-row justify-content-between">
+            
+            <h3 class="orange">Albums</h3>
+            <i class="gg-push-chevron-down-r m-2 p-2 hide" id="folder-tab-expand"></i>
+            <i class="gg-push-chevron-up-r m-2 p-2 hide" id="folder-tab-collapse"></i>
+
+        </div>
+
+        <div class="tab text-center " id="folder-tab">
+
+            <div class="bg-light album" style="width: 11rem;">
+              <div class="">
+                <p>Album Title</p>
+              </div>
+            </div>      
+                
+        </div>
+        <div>
+            <a href="" style="float: right; color: #FCA311;">More...</a><br>
+        </div>
+        <hr>
+    </div>
+
+    <!-- Songs-tab -->
+    
+    <div class="song-tab mt-2">
+        <div class="d-flex flex-row justify-content-between">
+            
+            <h3 class="orange">Songs</h3>
+            <i class="gg-push-chevron-down-r m-2 p-2 hide" id="song-tab-expand"></i>
+            <i class="gg-push-chevron-up-r m-2 p-2 hide" id="song-tab-collapse" ></i>
+
+        </div>
+
+        <div class="tab text-center" id="song-tab">
+            {% for song in song.other %}
+            <div class="card mt-2 mr-2 song-card" style="width: 11rem;">
+                <img class="card-img-top" src="media/image/{% if song.wallpaper %}{{ song.title}}{% else %}defaultsong{% endif %}.jpg" alt="{{ song.title}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ song.title }}</h5>
+                </div>
+            </div>
+            {% endfor %}
+
+                
+        </div>
+        <div>
+            <a href="" style="float: right; color: #FCA311;">More...</a>
+            <br>
+        </div>
+        <hr>
+    </div>
+
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js'%}"></script>    
+{% endblock %}

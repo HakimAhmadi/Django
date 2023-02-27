@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/uploadsong.css'%}">
+
+<div class="container form-data">
+    <h1>Upload Music</h1>
+            
+    <form action="uploadfile/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div>
+
+        <div class="fileinput col-sm-3">
+            <label for="song-input">Select Song</label>    
+            <input type="file" id="song-input" name="song" required>
+        </div>
+        
+        <div class="fileinput col-sm-3 " >
+            <label for="image-input">Select Cover</label>
+            <input type="file" id="image-input" name="image" >    
+        </div>
+        </div>
+
+        <div class='row'>
+        <div class="col-sm-3 file_message" id="song_message" ></div> 
+        <div class="col-sm-3 file_message" id="image_message"></div> </div>
+    
+        <div class="row"> 
+            <label class="col-sm-3" >Song Title</label>
+            <input class="col-sm-3" name="title" type="name" required><br>
+        </div>
+        <div class="row">
+            <label class="col-sm-3" >Singer</label>
+            <input class="col-sm-3" name="singer" type="name" required><br>
+        </div>
+        {% comment %} <div class="row">
+            <label class="col-sm-3" >Is it Album?</label>
+            <select required class="col-sm-3" name="isAlbum" id="isAlbum" onchange=
+            "albumtitle()">   
+                <option value="album">Album</option>
+                <option value="notalbum">Not Album</option>
+            </select><br>
+        </div>
+        <div class="row" id="albumtitle" >
+            <label class="col-sm-3" >Album Title</label>
+            <input class="col-sm-3" name="album" type="name" ><br>
+        </div> {% endcomment %}
+        <div class="row">
+            <label class="col-sm-3" >Release Date</label>
+            <input class="col-sm-3" style="color:black;" name="release_date" type="date" required><br>
+        </div>
+
+        <div class="row">
+            <label class="col-sm-3" for="stype">Song Type</label>
+        <select required class="col-sm-3" name="song_type" id="stype">
+            <option value="orignal">Orignal</option>
+            <option value="remix">Remix</option>
+        </select><br>
+
+        </div>
+        {% comment %} <div class="row">
+
+            <label class="col-sm-3" >Email</label>
+            <input class="col-sm-3"  name="email" type="email"><br>
+        </div> {% endcomment %}
+        {% comment %} <div class="row">
+
+            <label class="col-sm-3" >Country</label>
+            <select required id="country" name="country" class="col-sm-3"></select>
+        </div> {% endcomment %}
+        {% comment %} <div class="row">
+            <label class="col-sm-3" >Note</label>
+            <input class="col-sm-3" name="note" type="text" ><br>
+        </div> {% endcomment %}
+
+        <input class="col-sm-3 mt-4" type="submit" value="Submit"  >
+
+
+    </form>
+</div>
+
+<script src="{% static 'js/jquery.js'%}"></script>
+<script src="{% static 'js/uploadfile.js'%}"></script>
+
+
+{% endblock%}
