@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/uploadyt.css' %}">
+
+<form class="" method="post" action="downloadytfile">
+	{% csrf_token %}
+	
+
+    <div class="mt-3 mx-1 ">
+    	<h3>Upload Song From Youtube</h3>
+    </div>
+
+    <div class="row w-100 mt-3 mx-1">
+        
+        <input class="form-control mr-1 col-sm-5" type="text" placeholder="Link" aria-label="Search" id="ytlink" name="ytlink" value="youtube.com/watch?v=7wtfhZwyrcc">
+    
+        <button class="btn btn-outline-dark " type="submit" id="ytsubmit" name="ytsubmit" >Search</button>
+    </div>
+    
+    <div class="mx-1 mt-4 " id="video_info">
+        <h4>Video Detail</h4>
+        <div class="row"> 
+            <label class="col-sm-2" >Song Title</label>
+            <input class="col-sm-3" name="title" type="name" id="title" required>
+        </div>
+        <div class="row">
+            <label class="col-sm-2" >Singer</label>
+            <input class="col-sm-3" name="singer" type="name" id="singer" required>
+        </div>
+        <div class="row">
+            <label class="col-sm-2" >Release Date</label>
+            <input class="col-sm-3" style="color:black;" name="release_date" type="date" id="release_date" required>
+        </div>
+        <div class="row">
+            <label class="col-sm-2" for="stype">Song Type</label>
+        <select required class="col-sm-3" name="song_type" id="stype">
+            <option value="orignal">Orignal</option>
+            <option value="remix">Remix</option>
+        </select>
+        </div>
+        <div class="row">
+            <label class="col-sm-2" >Song Thumbnail</label>
+            <img src="" class="col-sm-3" style="" name="thumbnail_url" id="thumbnail_url">
+        </div>
+        <div class="row">
+            <label class="col-sm-2" >Video URL</label>
+            <input class="col-sm-3" style="color:black;" type="text" name="video_url" id="video_url" required>
+        </div>
+        
+        <div class="row col-sm-3"> <button class="btn btn-success" type="submit" id="ytdownload" >Download</button>
+            <div class="" >
+                <img class="ml-3 w-50" src="{% static 'images/loading.gif'%}" id="loading_icon" style="display:none;">
+            </div>
+            
+            
+        </div>
+        
+    </div>
+	
+</form>
+
+<script type="text/javascript" src="{% static 'js/jquery.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/uploadyt.js'%}"></script>
+
+{% endblock%}

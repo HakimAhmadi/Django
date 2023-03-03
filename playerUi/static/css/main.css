@@ -1,0 +1,11 @@
+.tab {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.album {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}

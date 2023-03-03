@@ -1,0 +1,19 @@
+body {
+
+    font-family: 'Lato', sans-serif;
+    background:#E5E5E5;
+}
+
+.left-sidebar {
+    width: 270px;
+    height: auto;
+    background: #14213D;
+}
+
+.orange {
+    color: #FCA311
+}
+
+.nav-item {
+    font-size: 15px;
+}
